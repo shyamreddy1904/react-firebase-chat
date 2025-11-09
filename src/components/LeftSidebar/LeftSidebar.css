@@ -1,0 +1,346 @@
+.ls {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  height: 75vh;
+  margin-top: 40px;
+  margin-left: 20px;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background accent */
+.ls::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ls-top {
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.ls-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ls-nav .logo {
+  width: 140px;
+  filter: drop-shadow(0 2px 8px rgba(102, 126, 234, 0.5));
+  transition: transform 0.3s ease;
+}
+
+.ls-nav .logo:hover {
+  transform: scale(1.05);
+}
+
+.ls-nav .menu {
+  position: relative;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.ls-nav .menu:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ls-nav .menu img {
+  width: 25px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.ls-nav .menu:hover img {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+.ls-nav .sub-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 150px;
+  padding: 15px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ls-nav .menu:hover .sub-menu {
+  display: block;
+}
+
+.ls-nav .sub-menu p {
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px 0;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  padding-left: 8px;
+}
+
+.ls-nav .sub-menu p:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(5px);
+}
+
+.ls-nav .sub-menu hr {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 8px 0;
+}
+
+.ls-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.ls-search:focus-within {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+  transform: translateY(-2px);
+}
+
+.ls-search img {
+  width: 18px;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.ls-search:focus-within img {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.ls-search input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+}
+
+.ls-search input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ls-list {
+  height: calc(75vh - 170px);
+  overflow-y: scroll;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.ls-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ls-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.ls-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+}
+
+.friends {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  cursor: pointer;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.friends::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.friends:hover::before {
+  left: 100%;
+}
+
+.friends:hover {
+  background: rgba(102, 126, 234, 0.2);
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.friends img {
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
+  min-height: 45px;
+  max-width: 45px;
+  max-height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(102, 126, 234, 0.5);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
+}
+
+.friends .avatar-fallback {
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
+  min-height: 45px;
+  max-width: 45px;
+  max-height: 45px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  border: 2px solid rgba(102, 126, 234, 0.5);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
+}
+
+.friends:hover img,
+.friends:hover .avatar-fallback {
+  border-color: #667eea;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(102, 126, 234, 0.6);
+}
+
+.friends div {
+  flex: 1;
+  overflow: hidden;
+}
+
+.friends p {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.friends span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.friends.border {
+  border: 2px solid #667eea;
+  background: rgba(102, 126, 234, 0.15);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(102, 126, 234, 0);
+  }
+}
+
+.friends.add-user {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  animation: slideInLeft 0.5s ease;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.friends.add-user:hover {
+  transform: translateX(5px) scale(1.02);
+}
+
+@media (max-width: 700px) {
+  .ls {
+    margin: 20px 10px;
+    height: calc(100vh - 40px);
+    border-radius: 15px;
+  }
+
+  .ls.hidden {
+    display: none;
+  }
+
+  .ls-list {
+    height: calc(100vh - 200px);
+  }
+}
